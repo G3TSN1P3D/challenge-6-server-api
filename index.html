@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h1>Weather Forecast</h1>
+        </div>
+    </header>
+    <main>
+        <section class="search">
+            <div class="search-content">
+                <h3>Search for a City</h3>
+                <input type="text" id="city-name" placeholder="Type the name of a city">
+                <button id="searchBtn" type="submit">Search</button>
+            </div>
+            <div class="previous-cities">
+                <ul class="cities-list"></ul>
+            </div>
+        </section>
+        <section class="weather-forecast">
+            <div class="current-weather">
+                <div class="current-title">
+                    
+                </div>
+                <ul class="weather-properties">
+                    <li class="weather-content" id="temp"></li>
+                    <li class="weather-content" id="wind"></li>
+                    <li class="weather-content" id="humidity"></li>
+                    <li class="weather-content" id="uv"></li>
+                </ul>
+            </div>
+            <div class="5-day-forecast">
+                <ul class="5-card-forecast">
+                    <li class="card" id="card-1">
+                        <div id="day-1"></div>
+                    </li>
+                    <li class="card" id="card-2">
+                        <div id="day-2"></div>
+                    </li>
+                    <li class="card" id="card-3">
+                        <div id="day-3"></div>
+                    </li>
+                    <li class="card" id="card-4">
+                        <div id="day-4"></div>
+                    </li>
+                    <li class="card" id="card-5">
+                        <div id="day-5"></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script src="./assets/scripts/script.js"></script>
+</body>
+</html>
