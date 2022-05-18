@@ -15,8 +15,7 @@ weatherHumidity = document.querySelector("#humidity");
 weatherUv = document.querySelector("#uv");
 h2Title = document.querySelector(".h2-title");
 
-iconE = document.createElement("i");
-
+iconE = document.createElement("img");
 
 function GetWeatherApi(lat, lon) {
   let requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
@@ -33,8 +32,9 @@ function GetWeatherApi(lat, lon) {
       let tempK = data.current.temp;
       uvIndex = data.current.uvi;
       weatherIcon = data.current.weather[0].icon;
+      let iconUrl = "https://openweathermap.org/img/wn/" + weatherIcon + ".png";
 
-      temp = Math.trunc((tempK - 273.15) * 9/5 + 32);
+      temp = Math.trunc(((tempK - 273.15) * 9) / 5 + 32);
     })
     .then(getWeatherData);
 }
@@ -42,14 +42,13 @@ function getDate() {
   unixTimestamp = currentDateUtx;
   milliseconds = unixTimestamp * 1000;
   dateObject = new Date(milliseconds).toDateString();
-  console.log(dateObject);
 }
 function getWeatherData() {
   getDate();
-  iconE.textContent = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+  iconE.src = "https://openweathermap.org/img/wn/" + weatherIcon + ".png";
   h2Title.textContent = `${cityName.value} (${dateObject})`;
 
-  // h2Title.appendChild(iconE);
+  h2Title.appendChild(iconE);
 
   weatherTemp.textContent = `${temp} F\u00B0`;
   weatherWind.textContent = `${wind} MPH`;
