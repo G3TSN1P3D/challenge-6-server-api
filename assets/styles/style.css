@@ -22,6 +22,11 @@ main {
 .weather-forecast {
     display: flex;
     margin: 20px;
+    
+}
+.current-weather {
+    flex-direction: column;
+    visibility: hidden;
     border: 2px solid gray;
     border-width: 100%;
 }
@@ -32,4 +37,9 @@ main {
 .weather-content {
     list-style: none;
     text-indent: -20px;
+}
+#five-day-forecast {
+    visibility: hidden;
+    margin: 20px;
+    padding: 10px;
 }
