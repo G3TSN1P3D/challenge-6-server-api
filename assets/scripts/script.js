@@ -9,10 +9,14 @@ let unixTimestamp, milliseconds, dateObject;
 searchBtn = document.querySelector("#searchBtn");
 cityName = document.querySelector("#city-name");
 currentTitle = document.querySelector(".current-title");
-weatherTemp = document.querySelector(".temp");
-weatherWind = document.querySelector(".wind");
-weatherHumidity = document.querySelector(".humidity");
-weatherUv = document.querySelector(".uv");
+weatherTemp = document.querySelector("#temp");
+weatherWind = document.querySelector("#wind");
+weatherHumidity = document.querySelector("#humidity");
+weatherUv = document.querySelector("#uv");
+h2Title = document.querySelector(".h2-title");
+
+iconE = document.createElement("i");
+
 
 function GetWeatherApi(lat, lon) {
   let requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
@@ -40,6 +44,15 @@ function getDate() {
 }
 function getWeatherData() {
   getDate();
+  iconE.textContent = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+  h2Title.textContent = `${cityName.value} ${dateObject} `;
+
+  // h2Title.appendChild(iconE);
+
+  weatherTemp.textContent = temp;
+  weatherWind.textContent = wind;
+  weatherHumidity.textContent = humidity;
+  weatherUv.textContent = uvIndex;
 }
 function GetCityApi() {
   let requestUrlCity = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName.value}&limit=1&appid=${apiKey}`;
