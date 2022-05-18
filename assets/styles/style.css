@@ -1,0 +1,35 @@
+.title {
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.title h1 {
+    font-weight: 800;
+    color: aliceblue;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+.search {
+    display: flex;
+    margin: 20px;
+}
+.search-content {
+    padding: 10px;
+}
+.weather-forecast {
+    display: flex;
+    margin: 20px;
+    border: 2px solid gray;
+    border-width: 100%;
+}
+.h2-title {
+    padding: 5px;
+    margin-left: 5px;
+}
+.weather-content {
+    list-style: none;
+    text-indent: -20px;
+}

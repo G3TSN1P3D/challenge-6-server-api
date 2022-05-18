@@ -30,9 +30,11 @@ function GetWeatherApi(lat, lon) {
       currentDateUtx = data.current.dt;
       wind = data.current.wind_speed;
       humidity = data.current.humidity;
-      temp = data.current.temp;
+      let tempK = data.current.temp;
       uvIndex = data.current.uvi;
       weatherIcon = data.current.weather[0].icon;
+
+      temp = Math.trunc((tempK - 273.15) * 9/5 + 32);
     })
     .then(getWeatherData);
 }
@@ -45,13 +47,13 @@ function getDate() {
 function getWeatherData() {
   getDate();
   iconE.textContent = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
-  h2Title.textContent = `${cityName.value} ${dateObject} `;
+  h2Title.textContent = `${cityName.value} (${dateObject})`;
 
   // h2Title.appendChild(iconE);
 
-  weatherTemp.textContent = temp;
-  weatherWind.textContent = wind;
-  weatherHumidity.textContent = humidity;
+  weatherTemp.textContent = `${temp} F\u00B0`;
+  weatherWind.textContent = `${wind} MPH`;
+  weatherHumidity.textContent = `${humidity}%`;
   weatherUv.textContent = uvIndex;
 }
 function GetCityApi() {
